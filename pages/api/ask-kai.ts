@@ -30,9 +30,9 @@ export default async function handler(
 
     const reply = completion.choices[0].message.content;
     return res.status(200).json({ reply });
-    catch (error: any) {
-      console.error('Kai API Error:', error?.response?.data || error?.message || error);
-      return res.status(500).json({ message: 'Something went wrong' });
-    }
-    
+
+  } catch (error: any) {
+    console.error('Kai API Error:', error?.response?.data || error?.message || error);
+    return res.status(500).json({ message: 'Something went wrong' });
+  }
 }
