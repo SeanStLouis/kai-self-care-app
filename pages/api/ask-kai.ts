@@ -23,14 +23,19 @@ export default async function handler(
     const completion = await openai.chat.completions.create({
       model: 'gpt-4',
       messages: [
-        { role: 'system', content: 'You are Kai, a warm and emotionally intelligent self-care companion.' },
-        { role: 'user', content: message },
+        {
+          role: 'system',
+          content: 'You are Kai, a warm and emotionally intelligent self-care companion.',
+        },
+        {
+          role: 'user',
+          content: message,
+        },
       ],
     });
 
-    const reply = completion.choices[0].message.content;
+    const reply = completion.choices[0].message?.content || 'No response';
     return res.status(200).json({ reply });
-
   } catch (error: any) {
     console.error('Kai API Error:', error?.response?.data || error?.message || error);
     return res.status(500).json({ message: 'Something went wrong' });
