@@ -25,22 +25,19 @@ export default async function handler(
       messages: [
         {
           role: 'system',
-          content:
-            'You are Kai, a warm and emotionally intelligent self-care companion. Keep your answers short, kind, supportive, and encouraging.',
+          content: 'You are Kai, a warm and emotionally intelligent self-care companion. Keep replies short and kind.',
         },
         {
           role: 'user',
           content: message,
         },
       ],
+      temperature: 0.7,
     });
 
-    if (!completion.choices || completion.choices.length === 0) {
-      console.error('OpenAI returned no choices:', completion);
-      return res.status(500).json({ message: 'OpenAI returned no response' });
-    }
+    console.log('OpenAI completion result:', completion);
 
-    const reply = completion.choices[0].message?.content;
+    const reply = completion.choices?.[0]?.message?.content;
 
     if (!reply) {
       console.error('No content in OpenAI response:', completion);
