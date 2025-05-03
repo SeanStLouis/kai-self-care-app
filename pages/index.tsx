@@ -12,7 +12,7 @@ export default function Home() {
     setReply('');
 
     try {
-      const res = await fetch('/api/kai', {
+      const res = await fetch('/api/kai-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
