@@ -11,6 +11,11 @@
     "incremental": true,
     "types": ["node"]
   },
-  "include": ["next-env.d.ts", "pages", "pages/**/*", "types"],
+  "include": [
+    "next-env.d.ts",
+    "pages/**/*.ts",
+    "pages/**/*.tsx",
+    "types"
+  ],
   "exclude": ["node_modules"]
 }
