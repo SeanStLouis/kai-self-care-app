@@ -12,7 +12,7 @@ export default function Home() {
     setReply('');
 
     try {
-      const res = await fetch('/api/ask-kai', {
+      const res = await fetch('/api/kai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
@@ -67,3 +67,4 @@ export default function Home() {
   );
 }
 
+{/* Force push test - should trigger Vercel deploy */}
